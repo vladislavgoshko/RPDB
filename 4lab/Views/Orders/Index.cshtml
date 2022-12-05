@@ -1,0 +1,75 @@
+﻿@model IEnumerable<lab4.DbModels.Order>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Orders</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Product name
+            </th>
+            
+            <th>
+                Customer
+            </th>
+            <th>
+                Worker
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Order date
+            </th>
+            <th>
+                Execution start date
+            </th>
+            <th>
+                Implementation date
+            </th>
+            <th>
+                Delivery order date
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Worker.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExecutionStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImplementationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryOrderDate)
+        </tr>
+}
+    </tbody>
+</table>
