@@ -1,0 +1,48 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/site.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/site.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+        </div>
+    </header>
+    <div class="container">
+        <a href="create.html" class="btn btn-primary">Create order</a>
+        <h2>List of orders:</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Worker</th>
+                    <th>Amount</th>
+                    <th>Order date</th>
+                    <th>Execution starting date</th>
+                    <th>Implementation date</th>
+                    <th>Delivery order date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <footer class="footer">
+        <div class="container">
+        </div>
+    </footer>
+    <script>
+        window.onload = function () {
+                    GetAllOrders();
+        }
+    </script>
+</body>
+</html>

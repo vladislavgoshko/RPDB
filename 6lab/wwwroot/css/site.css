@@ -1,0 +1,121 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+tr:nth-child(even) {
+    background: rgb(240,255,228);
+}
+
+.change-button { /*Кнопки для работы с записями*/
+    color: black;
+    font-weight: 600;
+    padding: 4px 7px 4px 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.edit-button { /*Кнопка редактирования*/
+    background: rgba(84, 185, 211, 0.5);
+    border-radius: 7px 0px 0px 7px;
+    transition: all 0.2s;
+}
+
+    .edit-button:hover {
+        background: rgba(84, 185, 211, 1);
+        color: black;
+        transition: all 0.2s;
+    }
+
+.details-button { /*Кнопка вывода полной информации*/
+    background: rgba(150, 207, 185, 0.5);
+    transition: all 0.2s;
+}
+
+    .details-button:hover {
+        background: rgba(150, 207, 185, 1);
+        color: black;
+        transition: all 0.2s;
+    }
+
+.delete-button { /*Кнопка удаления записи*/
+    background: rgba(214, 132, 110, 0.5);
+    border-radius: 0px 7px 7px 0px;
+    border: 0px;
+    transition: all 0.2s;
+}
+
+    .delete-button:hover {
+        background: rgba(214, 132, 110, 1);
+        color: black;
+        transition: all 0.2s;
+    }
+
+.classic-button { /*Голубая стандартная кнопка*/
+    color: black;
+    font-weight: 600;
+    padding: 4px 7px 4px 7px;
+    text-decoration: none;
+    background: rgba(150, 207, 185, 0.5);
+    border-radius: 7px;
+    border: 0px;
+    margin: 5px;
+    transition: all 0.2s;
+}
+
+    .classic-button:hover {
+        background: rgba(150, 207, 185, 1);
+        color: black;
+        transition: all 0.3s;
+    }
+
+.search-textbox {
+    background: white;
+    border: 1px groove black;
+    color: black;
+}
+
+.page-item.active .page-link { /*Страничная навигация*/
+    background: rgba(84, 185, 211, 0.5);
+    color: black;
+    border-color: rgba(84, 185, 211, 0.5);
+}
+
+    .page-item.active .page-link:hover {
+        background: rgba(84, 185, 211, 1);
+        color: black;
+        transition: all 0.2s;
+    }
+
+.red-button {
+    background: background: rgba(214, 132, 110, 0.5);
+    border-radius: 7px;
+    border: 0px;
+    font-weight: 600;
+    padding: 4px 7px 4px 7px;
+    color: black;
+}
+
+.center-button {
+    text-align: center;
+    padding: 10px;
+}
+
+.user-delete-btn {
+    padding: 3px 7px 2px 7px;
+}
+

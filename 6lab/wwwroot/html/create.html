@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Create</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/site.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/site.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <h3>Add order</h3>
+                <hr />
+                <form name="orderForm">
+                    <input type="hidden" name="id" value="0" />
+                    <div class="form-floating mb-2">
+                        Product: <select asp-for="ProductId" class="form-control" name="product"></select>
+                    </div>
+                    <div class="form-floating mb-2">
+                        Amount: <input asp-for="Amount" type="number" min="1" class="form-control" name="amount" />
+                    </div>
+                    <div class="form-floating mb-2">
+                        Customer: <select asp-for="CustomerId" class="form-control" name="customer"></select>
+                    </div>
+                    <div class="form-floating mb-2">
+                        Worker: <select asp-for="WorkerId" class="form-control" name="worker"></select>
+                    </div>
+                    <div class="form-floating mb-3">
+                        Order date: <input asp-for="OrderDate" type="datetime-local" class="form-control" name="orderDate"/>
+                    </div>
+                    <div class="form-floating mb-2">
+                        Execution date: <input asp-for="ExecutionStartDate" type="datetime-local" class="form-control" name="executionDate"/>
+                    </div>
+                    <div class="form-floating mb-2">
+                        Implementation date: <input asp-for="ImplementationDate" type="datetime-local" class="form-control" name="implementDate" />
+                    </div>
+                    <div class="form-floating mb-2">
+                        Delivery date: <input asp-for="DeliveryOrderDate" type="datetime-local" class="form-control" name="deliveryDate" />
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="submit" id="submit" value="Создать" class="btn btn-secondary" />
+                        <a href="index.html" class="btn btn-primary">Вернуться назад</a>
+                        <input type="reset" value="Reset" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        //Функция, которая активируется при загрузке страницы html
+        window.onload = function () {
+            GetAllProducts();
+            GetAllWorkers();
+            GetAllCustomers();
+        }
+
+        //Функция создания новой записи о фильме
+        async function CreateOrder(product, amount, customer, worker, orderDate, executionDate, implementDate, deliveryDate) {
+            const response = await fetch("/api/orders/", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    customerId: parseInt(customer, 10),
+                    productId: parseInt(product, 10),
+                    amount: parseInt(amount, 10),
+                    orderDate: orderDate,
+                    executionStartDate: executionDate,
+                    implementationDate: implementDate,
+                    deliveryOrderDate: deliveryDate,
+                    workerId: parseInt(worker, 10)
+                })
+            });
+            if (response.ok === true) {
+                const order = await response.json();
+                alert("Order created");
+                window.location = "index.html";
+            }
+            else {
+                alert("Validation error");
+            }
+        }
+
+        document.forms["orderForm"].addEventListener("submit", e => {
+            e.preventDefault();
+            const form = document.forms["orderForm"];
+
+            const product = form.elements["product"].value;
+            const amount = form.elements["amount"].value;
+            const customer = form.elements["customer"].value;
+            const worker = form.elements["worker"].value;
+            const orderDate = form.elements["orderDate"].value;
+            const executionDate = form.elements["executionDate"].value;
+            const implementDate = form.elements["implementDate"].value;
+            const deliveryDate = form.elements["deliveryDate"].value;
+
+            CreateOrder(product, amount, customer, worker, orderDate, executionDate, implementDate, deliveryDate);
+        });
+    </script>
+</body>
+</html>

@@ -1,8 +1,4 @@
 ﻿using lab4.DbModels;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
-using System.Threading.Tasks;
 
 namespace lab4
 {
